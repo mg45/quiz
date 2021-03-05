@@ -71,6 +71,12 @@ body {
   justify-content: space-around;
   margin-bottom: 3%;
 }
+@media screen and (max-width: 959px) {
+  .question-choices ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 
 button {
   border-radius: 2px;
