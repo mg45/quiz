@@ -56,7 +56,74 @@ let data = [
     {
         url: "https://cdn.playbuzz.com/cdn//f063e8fe-ad57-485e-8211-ed2ee0d9a205/1226f177-dc1a-4142-8875-bdaa177717d7.jpg",
         question: "Which is the largest body of water?",
-        choice: ["indian Ocean", "Pacific Ocean", "Atlantic Ocean", "Nile River"],
+        choice: ["indian Ocean", "Pacific Ocean", "Atlantic Ocean", "Yellow River"],
         answer: "Pacific Ocean"
     }
 ]
+
+const resultHtml = document.getElementById('content');
+
+data.forEach((element) => {
+    let choices = "";
+    element.choice.forEach((choice) => {
+        choices += `<button value="${choice}">${choice}</button>`;
+    });
+    resultHtml.innerHTML += `
+    <div data-aos="fade-in" class="question-container">
+        <div class="question-header">
+            <div style="background-image: url(${element.url})" class="question-cover">
+            </div>
+        </div>
+        <div class="question-body">
+            <div class="question-title">
+                <h1>${element.question}</h1>
+            </div>
+            <div class="question-choices">
+                <ul>
+                ${choices}
+                </ul>
+            </div>
+        </div>
+    </div>
+    `
+});
+
+let buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (getIndex(button.value) != -1) {
+            button.classList.add("success");
+            button.setAttribute("id", "find-all-siblings");
+            let elem = document.querySelector('#find-all-siblings');
+            let siblings = getSiblings(elem);
+            console.log(siblings);
+            siblings.forEach(sibling => {
+                sibling.setAttribute("disabled", "disabled");
+                sibling.classList.add("disabled");
+            })
+            button.removeAttribute("id", "find-all-siblings");
+        } else {
+            button.classList.add("fail");
+            button.setAttribute("id", "find-all-siblings");
+            let elem = document.querySelector('#find-all-siblings');
+            let siblings = getSiblings(elem);
+            siblings.forEach(sibling => {
+                sibling.setAttribute("disabled", "disabled");
+                sibling.classList.add("disabled");
+            })
+            button.removeAttribute("id", "find-all-siblings");            
+        }
+    })
+})
+
+function getIndex(search) {
+    let index = data.map(e => String(e.answer)).indexOf(search);
+    return index;
+}
+
+let getSiblings = function (elem) {
+    return Array.prototype.filter.call(elem.parentNode.children, function (sibling) {
+        return sibling !== elem;
+    });
+};

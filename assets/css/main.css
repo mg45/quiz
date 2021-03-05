@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700&display=swap");
+header {
+  padding: 1em 1em;
+  text-align: center;
+  height: 65px;
+  background-color: #000;
+}
+
+svg {
+  height: 60px;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.question-container {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+  font-weight: 100;
+  margin: 48px auto;
+  padding-bottom: 3%;
+  width: 20rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 16px 16px 4px;
+}
+@media screen and (min-width: 480px) {
+  .question-container {
+    width: 28rem;
+  }
+}
+@media screen and (min-width: 767px) {
+  .question-container {
+    width: 40rem;
+  }
+}
+@media screen and (min-width: 959px) {
+  .question-container {
+    width: 50rem;
+  }
+}
+
+.question-cover {
+  filter: grayscale(1);
+  background: url("");
+  background-size: cover;
+  border-radius: 5px 5px 0 0;
+  height: 15rem;
+}
+
+.question-body {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.question-title h1 {
+  font-weight: 500;
+  text-align: center;
+  color: #000;
+}
+
+.question-choices ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  justify-content: space-around;
+  margin-bottom: 5%;
+}
+
+button {
+  border-radius: 2px;
+  font-family: inherit;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.fail {
+  background: #E95831;
+}
+
+.success {
+  background: #22A85A;
+}
+
+.disabled {
+  background: #CBCBCB;
+}
+
+/*# sourceMappingURL=main.css.map */
